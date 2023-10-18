@@ -4,23 +4,42 @@ import {username, password} from './fixtures.js'
 
 describe('Czechitas Login Page', async () => {
 
-    it('should open login page', async () => {
+   it('should open login page', async () => {
 
-        await browser.reloadSession();
+       await browser.reloadSession();
 
-        await browser.url('/prihlaseni');
+       await browser.url('/prihlaseni');
+       const emailField = await $('#email');
+       const passwordField = await $('#password');
+       console.log(await emailField.isDisplayed());
+       console.log(await emailField.isEnabled());
+       console.log(await passwordField.isDisplayed());
+       console.log(await passwordField.isEnabled());
+       const loginButton = await $('.btn-primary');
+       console.log(await loginButton.getText());
+       const forgotPasswordLink = await $('=Zapomněli jste své heslo?');
+       console.log(await forgotPasswordLink.getAttribute('href'));
+       await emailField.setValue('monika@czechitas.cz');
+       await passwordField.setValue('hesloooo');
+       await loginButton.click();
+       
 
-        const windowSize = await browser.getWindowSize();
-        console.log(windowSize);
 
 
-        await browser.saveScreenshot('login_page.png');
+
+        //const windowSize = await browser.getWindowSize();
+        //console.log(windowSize);
+
+
+        //await browser.saveScreenshot('login_page.png');
         
-        await browser.pause(5000);
+        //await browser.pause(5000);
 
     });
 
 });
+
+
 
 
 
