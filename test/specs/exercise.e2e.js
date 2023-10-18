@@ -12,7 +12,7 @@ describe('Czechitas Login Page', async () => {
 
         const windowSize = await browser.getWindowSize();
         console.log(windowSize);
-        
+
 
         await browser.saveScreenshot('login_page.png');
         
