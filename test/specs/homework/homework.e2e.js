@@ -1,8 +1,11 @@
-describe('Homework', async () => {
+describe('Homework Lesson1', async () => {
 
-    it('should open page and create screenshot', async () => {
+    it('Registrace page', async () => {
 
-        // sem vypracuj domácí úkol
+        await browser.reloadSession();
+        await browser.url('/registrace');
+        await browser.saveScreenshot('registrace_page.png');
+        await browser.pause(5000);
 
     });
 
